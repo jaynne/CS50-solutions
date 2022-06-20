@@ -46,17 +46,18 @@ person *create_family(int generations)
     if (generations > 1)
     {
         // TODO: Recursively create blood type histories for parents
-        // Não precisa de for/while pq já é uma recursão, e a condição p/ parar já é
-        // imposta ali em cima (if > 1). É a primeira checagem
+        /*This is a recursion example, instead of previous labs and psets, we are using 
+        it instead of iteration. We set the condition at the beginning, so if the
+        condition is false, the recursion is stopped.*/
         p->parents[0] = create_family(generations - 1);
         p->parents[1] = create_family(generations - 1);
 
         // TODO: Randomly assign child alleles based on parents
-        //rand() % 2 retorna apenas 0 ou 1, portanto podemos
-        //utilizar já dentro dos square brackets
+
+        /*rand() % 2 can only return 0 or 1, the reason why we can
+        already put it under square brackets*/
         p->alleles[0] = p->parents[0]->alleles[rand() % 2];
         p->alleles[1] = p->parents[1]->alleles[rand() % 2];
-
     }
 
     // Generation without parent data
@@ -71,6 +72,7 @@ person *create_family(int generations)
     }
 
     // TODO: Return newly created person
+    /*At the end of the function. Happens before exiting the recursion "loop" */
     return p;
 }
 
@@ -78,14 +80,14 @@ person *create_family(int generations)
 void free_family(person *p)
 {
     // TODO: Handle base case
-    // O return fica aqui já que, caso essa condição
-    //seja verdadeira, significa que chegamos no fim
+    /*Return is put here so that when this condition is true
+    (in the end of the function), we return*/
     if (p == NULL)
     {
         return;
     }
     // TODO: Free parents
-    // Utiliza recursão assim como create_family
+    // Uses recursion similarly to create_family
 
     free_family(p->parents[0]);
     free_family(p->parents[1]);
