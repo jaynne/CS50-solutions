@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <h2>Quote</h2>
+    <p style="color:red;">{{errorMessage}}</p>
+    <hr>
+    <div class="section">
+        <center>
+    <table style="border: 5px solid #990000; border-collapse: collapse">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Symbol</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over fields of json object and add to table -->
+            <tr>
+                <td>{{stock["name"]}}</td>
+                <td>{{stock["price"] | usd}}</td>
+                <td>{{stock["symbol"]}}</td>
+            </tr>
+        </tbody>
+    </table>
+    </center>
+    </div>
+{% endblock %}

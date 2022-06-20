@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+    <p style="color:red;">{{errorMessage}}</p>
+    <hr>
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Symbol</th>
+      <th scope="col">Shares</th>
+      <th scope="col">Price</th>
+      <th scope="col">Transacted</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for stock in transactionDetails %}
+    <tr>
+        <td>{{stock["stock"]}}</td>
+        <td>{{stock["shares"]}}</td>
+        <td>{{stock["price"] | usd}}</td>
+        <td>{{stock["timestamp"]}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
