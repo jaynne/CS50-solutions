@@ -25,7 +25,6 @@ with open(sys.argv[1], "r") as file:
 
 ocurrences = {}
 count = 0
-maxcount = 0
 j = 0
 
 # Count armazena temporariamente o valor das repetições.
@@ -36,7 +35,7 @@ for n in range(len(STR)):
 
 # Vamos criar uma lista com os maxcounts
 dna = (open(sys.argv[2], "r")).read()
-maxcount = 0
+#maxcount = 0
 for n in range(len(STR)):
     # Zeramos maxcount p cada STR
     maxcount = 0
