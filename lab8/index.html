@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener("DOMContentLoaded", function(){
+                document.querySelector('#freeResponse');
+
+                //We'll use classes instead of id's because then we can have multiple
+                //elements with the same identifier (id's are unique)
+
+                let correctButton = document.querySelector('.correct');
+                correctButton.addEventListener('click', function() {
+                    correctButton.style.backgroundColor = 'green';
+                    document.getElementById("feedback1").innerHTML = "Correct!";
+                });
+                
+                // Iterate over incorrect answers
+                let incorrectButtons = document.querySelectorAll('.incorrect');
+                for (let i = 0; i < incorrectButtons.length; i++){
+                    incorrectButtons[i].addEventListener('click', function(){
+                        document.getElementById("feedback1").innerHTML = "Incorrect!";
+                        incorrectButtons[i].style.backgroundColor = 'red';
+                    });
+                }
+
+                document.querySelector('#freeResponse').onsubmit = function(){
+                    let answer = document.querySelector('#answer').value;
+                    let answerField = document.querySelector('#answer');
+                    if (answer == 'Brazil'){
+                        answerField.style.backgroundColor = 'green';
+                        document.getElementById("feedback2").innerHTML = "Correct!";
+                    }
+                    else{
+                        answerField.style.backgroundColor = 'red';
+                        document.getElementById("feedback2").innerHTML = "Incorrect!";
+                    }
+                }
+            });
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>Where is the Great Pyramid of Giza?</h3>
+                <form id ="answers">
+                    <tr>
+                        <ul>
+                            <button class="correct">Egypt</button>
+                            <button class="incorrect">Syria</button>
+                            <button class="incorrect">Afeganistan</button>
+                        </ul>
+                    </tr>
+                </form>
+                <p id="feedback1"></p>
+                <!-- TODO: Add multiple choice question here -->
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <h3>Largest country of South America?</h3>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <form id="freeResponse">
+                    <input id ="answer" type="text">
+                    <input type="submit" value="Submit">
+                </form>
+                <p id ="feedback2"></p>
+            </div>
+
+        </div>
+    </body>
+</html>
