@@ -1,0 +1,29 @@
+body
+{
+    /* background-color: #11002e */
+    background: rgb(108,25,34);
+    background: linear-gradient(0deg, rgba(108,25,34,1) 0%, #11002e 100%);
+}
+
+.bg-nav
+{
+    background-color: rgba(14,0,84,1);
+}
+p, h1, h2, h3, h6{
+color: #fffff0
+}
+
+.color-red{
+    background-color:#800e0e;
+    color:#fffff0;
+}
+a
+{
+    color:#fffff0;
+}
+
+hr.solid
+{
+    border-top: 3px solid #C0C0C0;
+    border-radius: 5px;
+}
